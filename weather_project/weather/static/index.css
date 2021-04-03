@@ -1,0 +1,17 @@
+#c1{
+    background-color: #eb7945;
+}
+#c2{
+    background-color: hsl(270, 52%, 80%);
+}
+.box{
+    border: solid 8px black;
+}
+.box:hover{
+    background-color: aliceblue;
+}
+.nav-footer{
+    color: hsla(0,0%,100%,.4);
+    text-align: center;
+    color: black;
+}

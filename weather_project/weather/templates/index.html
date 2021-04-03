@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.5.3/cerulean/bootstrap.min.css"
+    integrity="sha512-dQLT/B7byn2LjN/DN4zeBKpwGV6qbidV0XiMRWQOL7TGrV7FkZFldkGG+DGMU+CQnMTcRZlUI7GMWt1j6akNew=="
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+
+<body>
+    <section id=s1 class="hero is-black">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    W H E A T H E R&nbsp&nbsp&nbsp&nbspI N F O R M A T I O N&nbsp&nbsp&nbsp&nbspS E R V I C E
+                </h1>
+            </div>
+        </div>
+    </section>
+    <div  id=c1 class="container-fluid">
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input type="text" name="city" class='form-control' placeholder="Choose Your City .." required>
+                            </div>
+                            <div class="control">
+                                <button type="submit" class="button is-info">
+                                    SUBMIT
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+  <div id=c2 class="container-fluid">
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-5">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-left">
+                                <figure class="image is-100x100">
+                                    <img src="http://openweathermap.org/img/w/{{ icon }}.png" alt="Image">
+                                </figure>
+                            </div>
+                            <div class="media is-info">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">
+                                        {% for c in city %}
+                                        {{c}}&nbsp
+                                        {%endfor%}  
+                                        </span>
+                                        <br>
+                                        <span class="subtitle">{{ temperature }}</span>
+                                        <br> {{ description }} <br>
+                                        Country_code : {{country_code}} <br>
+                                        Coordinate : {{coordinate}} <br>
+                                        Pressure : {{pressure}} <br>
+                                        Humidity : {{humidity}} <br>
+                                        Sunrise : {{sunrise}} <br>
+                                        Sunset : {{sunset}} <br> 
+                                        Date : {{datetime}} 
+                                      </p>
+                                </div>
+                            </div>
+                        </article>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  </div>
+  <footer class="nav-footer" id="footer">
+  <section class="copyright"><div><span>Develop by Yash Rao</span></div></section></footer>  
+</body>
+</html>
